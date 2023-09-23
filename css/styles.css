@@ -76,9 +76,24 @@ main {
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
+  position: relative;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link:hover {
   color: #404bbf;
+}
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--OCEAN, #404bbf);
+  content: '';
 }
 .nav-link:focus {
   color: #404bbf;
@@ -115,6 +130,9 @@ a {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-link:hover {
   color: #404bbf;
@@ -140,6 +158,14 @@ a {
   background-color: #2e2f42;
   padding: 0 472px;
   padding: 188px 0 188px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(/images/people-office.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .main-title {
   color: #ffffff;
@@ -173,6 +199,9 @@ a {
   padding: 16px 32px;
   gap: 10px;
   cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-button:hover {
@@ -181,6 +210,7 @@ a {
 .main-button:focus {
   background-color: #404bbf;
 }
+
 /* закінчується hero-siction */
 
 /* TODO Benefits section*/
@@ -212,6 +242,17 @@ a {
   text-align: left;
   width: calc((100% - 72px) / 4);
   padding-bottom: 8px;
+}
+
+.benefits-icon {
+  display: block;
+  padding: 24px 100px;
+  text-align: left;
+  margin-bottom: 8px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--LIGHT-SLATE, #8e8f99);
+  background: var(--CLOUD, #f4f4fd);
 }
 
 .benefits-title {
@@ -291,6 +332,39 @@ a {
   line-height: 1.5;
   letter-spacing: 0.02em;
   font-style: normal;
+  margin-bottom: 8px;
+}
+
+.social-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.social-item {
+  width: 40px;
+  height: 40px;
+}
+.social-link {
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--IRIS, #4d5ae5);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-link:hover {
+  background-color: var(--OCEAN, #404bbf);
+}
+.social-link:focus {
+  background-color: var(--OCEAN, #404bbf);
+}
+.icon-social-networks {
+  fill: var(--CLOUD, #f4f4fd);
+  margin: 12px;
 }
 /* END Our team */
 
@@ -315,7 +389,6 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-
   flex-wrap: wrap;
   row-gap: 48px;
 }
@@ -324,12 +397,38 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   flex-shrink: 0;
   background: var(--WHITE, #fff);
   width: calc((100% - 48px) / 3);
 }
+.portfolio-images {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--IRIS, #4d5ae5);
+  color: var(--CLOUD, #f4f4fd);
+  padding: 40px 32px 284px 32px;
+  line-height: 1.2;
+  transform: translateY(100%);
+  transition: transforf 240ms linear;
+}
+.portfolio-list:hover .overlay,
+.portfolio-list:focus .overlay {
+  transform: translateY(0%);
+}
 
+.portfolio-list:hover,
+.portfolio-list:focus {
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
 .list-text {
   display: block;
   padding: 32px 16px;
@@ -367,7 +466,13 @@ a {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-
+.footer-block {
+  display: flex;
+  align-items: baseline;
+}
+.first-block {
+  margin-right: 120px;
+}
 .footer-logo {
   display: inline-block;
   margin-bottom: 16px;
@@ -392,4 +497,14 @@ a {
   line-height: 1.5;
   letter-spacing: 0.02em;
   width: 264px;
+}
+.social-text {
+  color: var(--WHITE, #fff);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.32px;
+  margin-bottom: 16px;
 }
