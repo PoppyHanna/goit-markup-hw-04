@@ -71,7 +71,7 @@ main {
   justify-content: flex-start;
 }
 .nav-link {
-  color: var(--NAVY-BLUE, #2e2f42);
+  color: #404bbf;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -86,7 +86,9 @@ main {
 .nav-link:hover {
   color: #404bbf;
 }
-.nav-link:hover::after {
+/* .nav-link:hover::after */
+.nav-link:hover::after,
+.nav-link:focus::after {
   content: '';
   position: absolute;
   left: 0;
@@ -166,7 +168,7 @@ a {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(/images/people-office.jpg);
+    url(../images/people-office.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
